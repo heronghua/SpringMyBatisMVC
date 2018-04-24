@@ -7,5 +7,6 @@
   
   <body>
     ${user.name}
+    ${user.department}
   </body>
 </html>
