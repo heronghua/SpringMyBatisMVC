@@ -8,7 +8,7 @@ import com.foxconn.springmybatismvc.dao.UserMapper;
 import com.foxconn.springmybatismvc.service.UserService;
 import com.foxconn.springmybatismvc.vo.User;
 
-@Service("userService")
+@Service
 public class UserServiceImpl implements UserService {
 	
 	@Resource
