@@ -1,6 +1,8 @@
 package com.foxconn.springmybatismvc.controller;
 
 import javax.annotation.Resource;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,6 +19,9 @@ import com.foxconn.springmybatismvc.vo.User;
 @RestController
 @RequestMapping("/user")
 public class UserController {
+	
+	public Log log = LogFactory.getLog(UserController.class);
+	
 	@Resource
 	private UserService userService;
 
@@ -37,6 +42,7 @@ public class UserController {
 	public User toIndex(@RequestBody User user) {
 		int userId = 1;
 		User user1 = this.userService.getUserByNu(userId);
+		log.debug("=====================================");
 		return user1;
 	}
 
