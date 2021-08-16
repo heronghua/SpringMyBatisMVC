@@ -1,4 +1,4 @@
-package com.foxconn.springmybatismvc.controller;
+package com.archermind.springmybatismvc.controller;
 
 import javax.annotation.Resource;
 import org.apache.commons.logging.Log;
@@ -6,13 +6,12 @@ import org.apache.commons.logging.LogFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.foxconn.springmybatismvc.service.UserService;
-import com.foxconn.springmybatismvc.vo.User;
+import com.archermind.springmybatismvc.service.UserService;
+import com.archermind.springmybatismvc.vo.User;
 
 /**https://www.cnblogs.com/zyw-205520/p/4771253.html*/
 
@@ -33,17 +32,27 @@ public class UserController {
 //		return "showUser";
 //	}
 	
-	@RequestMapping(value = "/showUser")
+	/*@RequestMapping(value = "/showUser")
 	public void downloadApkIpa(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.getRequestDispatcher("/WEB-INF/view/showUser.jsp").forward(request, response);
-	}
+	}*/
 
-	@RequestMapping(value = "/user", produces = "application/json;charset=UTF-8")
-	public User toIndex(@RequestBody User user) {
+
+	@RequestMapping(value = "/showUser", produces = "application/json;charset=UTF-8")
+	public User showUser(@RequestBody User user) {
+		log.info("[showUser] +");
 		int userId = 1;
 		User user1 = this.userService.getUserByNu(userId);
-		log.debug("=====================================");
+		log.info("[showUser] -");
 		return user1;
+
+	}
+
+	@RequestMapping(value = "/login",produces = "application/json;charset=UTF-8")
+	public String login(@RequestBody User user){
+		
+
+		return "{'result':'login success'}";
 	}
 
 }

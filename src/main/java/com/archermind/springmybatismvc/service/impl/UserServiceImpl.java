@@ -1,12 +1,12 @@
-package com.foxconn.springmybatismvc.service.impl;
+package com.archermind.springmybatismvc.service.impl;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.foxconn.springmybatismvc.dao.UserMapper;
-import com.foxconn.springmybatismvc.service.UserService;
-import com.foxconn.springmybatismvc.vo.User;
+import com.archermind.springmybatismvc.dao.UserMapper;
+import com.archermind.springmybatismvc.service.UserService;
+import com.archermind.springmybatismvc.vo.User;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -16,6 +16,11 @@ public class UserServiceImpl implements UserService {
 	
 	public User getUserByNu(int nu) {
 		return userMapper.selectByPrimaryKey(nu);
+	}
+
+	@Override
+	public boolean register() {
+		return false;
 	}
 
 }
